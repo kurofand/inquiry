@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS inquiries;
+CREATE TABLE inquiries(
+id		INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT='uniq ID',
+email		VARCHAR(320) NOT NULL COMMENT='email addres',
+inquiry_body	TEXT NOT NULL COMMENT='inquiry',
+name		VARCHAR(620) NOT NULL COMMENT='name',
+birthday	DATE COMMENT='birth date',
+PRIMARY KEY('id'))
+CHARACTER SET 'utfmb48', ENGINE=InnoDB, COMMENT='';
