@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 /*$email=(string)@$_POST['email'];
 $email=(string)filter_input(INPUT_POST. 'email');*/
 $params=array('email', 'name', 'birthday', 'body');
@@ -20,7 +22,10 @@ if(false==strtotime($input_data['birthday']))
 
 if(array()!==$error_detail)
 {
-	echo 'エラーがあったらしい';
+	$_SESSION['buffer']['error_detail']=$error_detail;
+	$_SESSION['buffer']['input']=$input_data;
+	//echo 'エラーがあったらしい';
+	header('Location: ./inquiry.php');
 	exit;
 }
 echo 'でーたのvalidateはOKでした';
