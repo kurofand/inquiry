@@ -9,6 +9,10 @@ else
 	$input=array();
 $error_detail=$_SESSION['buffer']['error_detail'];
 
+$csrf_token=hash('sha512', random_bytes(128));
+while(10<=count(@$_SESSION['csrf_token']))
+	$_SESSION['csrf_token'][$csrf_token]=time();
+
 function h($a)
 {
 	return  htmlspecialchars($a, ENT_QUOTES);
@@ -30,7 +34,10 @@ if(isset($error_detail['error_must_email']))
 email(*):<input type="text" name="email" value="<?php echo h($input['email']);>?"><br>
 名前<input type="text" name="name" value="<?php echo h($input['name']);?>"><br>
 誕生日<input type="text" name="birthday" value="<?php echo h($input['birthday']);?>"><br>
-問い合わせ内容<textarea name="body" value="<?php echo h($input['body']);?>"></textarea><br>
+問い合わせ内容<textarea name="body" value="
+<?php 
+echo h($input['body']);?>"></textarea><br>
+<input type="hidden" name="csrf_token" value="<?php echo h($csrf_token);?>">
 <button>問い合わせ</button>
 </form>
 <body>
