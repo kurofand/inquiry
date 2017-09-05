@@ -1,0 +1,10 @@
+rsync -a ./ 02/ --exclude "02" --exclude ".git"
+rsync -a ./ 03/ --exclude "02" --exclude "03" --exclude ".git"
+rsync -a ./ 04/ --exclude "02" --exclude "03" --exclude "04" --exclude ".git"
+rsync -a ./ 05/ --exclude "02" --exclude "03" --exclude "04" --exclude "05" --exclude ".git"
+rsync -a ./ 06/ --exclude "06" --exclude "02" --exclude "03" --exclude "04" --exclude "05" --exclude ".git"
+rsync -a ./ 07/ --exclude "07" --exclude "06" --exclude "02" --exclude "03" --exclude "04" --exclude "05" --exclude ".git" --exclude "wwwroot/vendor/"
+rsync -a ./ 08/ --exclude "08" --exclude "07" --exclude "06" --exclude "02" --exclude "03" --exclude "04" --exclude "05" --exclude ".git" --exclude "wwwroot/vendor/"
+rsync -a ./ 09/ --exclude "09" --exclude "08" --exclude "07" --exclude "06" --exclude "02" --exclude "03" --exclude "04" --exclude "05" --exclude ".git" --exclude "wwwroot/vendor/"
+
+
